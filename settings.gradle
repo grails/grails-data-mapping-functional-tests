@@ -1,1 +1,1 @@
-include 'hibernate5','hibernate4', 'hibernate3', 'mongodb'
+include 'hibernate5','hibernate4', 'hibernate3', 'mongodb', 'neo4j'

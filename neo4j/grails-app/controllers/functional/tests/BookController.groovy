@@ -10,7 +10,7 @@ class BookController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Book.list(params), model:[bookCount: Book.collection.count()]
+        respond Book.list(params), model:[bookCount: Book.count(), foo:Book.find('MATCH (n:Book) WHERE n.title = {1} RETURN n', ['The Stand'])]
     }
 
     def show(Book book) {
