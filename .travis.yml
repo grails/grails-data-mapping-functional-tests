@@ -1,0 +1,7 @@
+language: groovy
+services:
+- redis
+- mongodb
+- cassandra
+jdk:
+- oraclejdk7
