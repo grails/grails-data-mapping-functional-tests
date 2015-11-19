@@ -1,5 +1,7 @@
 sudo: false
-language: groovy
+cache:
+  directories:
+  - $HOME/.gradle
 services:
 - redis
 - mongodb
@@ -7,4 +9,4 @@ services:
 jdk:
 - oraclejdk7
 install: false
-script: ./gradlew check 
+script: ./gradlew check

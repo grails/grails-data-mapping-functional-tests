@@ -18,6 +18,7 @@ ext {
     gormVersion = System.getenv('GORM_VERSION') ?: '5.0.0.BUILD-SNAPSHOT'
 }
 
+
 subprojects {
 
     group "grails.gorm.functional.tests"
@@ -30,6 +31,11 @@ subprojects {
     apply plugin: 'idea'
     apply plugin: "org.grails.grails-web"
     apply plugin: "org.grails.grails-gsp"
+
+    configurations.all {
+        // check for updates every build
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
 
     ext {
         grailsVersion = project.grailsVersion
