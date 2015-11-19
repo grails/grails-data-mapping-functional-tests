@@ -1,4 +1,5 @@
 dependencies {
     compile "org.grails.plugins:hibernate4:5.0.0.BUILD-SNAPSHOT"
+    compile "org.hibernate:hibernate-ehcache"
 }
 

@@ -1,1 +1,1 @@
-include 'hibernate4'
+include 'hibernate4', 'hibernate3'

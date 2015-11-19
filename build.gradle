@@ -59,8 +59,7 @@ subprojects {
         compile "org.grails:grails-dependencies"
         compile "org.grails:grails-web-boot"
 
-        compile "org.grails.plugins:cache"
-        compile "org.hibernate:hibernate-ehcache"
+        compile "org.grails.plugins:cache"        
         compile "org.grails.plugins:scaffolding"
 
         runtime "org.grails.plugins:asset-pipeline"
