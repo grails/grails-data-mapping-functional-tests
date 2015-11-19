@@ -1,0 +1,4 @@
+dependencies {
+    compile "org.grails.plugins:redis-gorm:5.0.0.BUILD-SNAPSHOT"
+}
+
