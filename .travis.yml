@@ -6,3 +6,5 @@ services:
 - cassandra
 jdk:
 - oraclejdk7
+install: false
+script: ./gradlew check 
