@@ -1,5 +1,5 @@
 dependencies {
-    compile "org.grails.plugins:hibernate3:5.0.0.BUILD-SNAPSHOT"
+    compile "org.grails.plugins:hibernate3:$gormVersion"
     compile "org.hibernate:hibernate-ehcache:3.6.10.Final"
 }
 
