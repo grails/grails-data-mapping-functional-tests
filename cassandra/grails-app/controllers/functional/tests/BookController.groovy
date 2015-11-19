@@ -1,6 +1,6 @@
 package functional.tests
 
-import grails.neo4j.Neo4jEntity
+import grails.cassandra.CassandraEntity
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -12,11 +12,11 @@ class BookController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Book.list(params), model:[bookCount: Book.count(), foo:Book.find('MATCH (n:Book) WHERE n.title = {1} RETURN n', ['The Stand'])]
+        respond Book.list(params), model:[bookCount: Book.count()]
     }
 
     def show(Book book) {
-        assert book instanceof Neo4jEntity
+        assert book instanceof CassandraEntity
         respond book
     }
 

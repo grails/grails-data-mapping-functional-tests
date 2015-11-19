@@ -1,5 +1,7 @@
 package functional.tests
 
+import grails.mongodb.MongoEntity
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -14,6 +16,7 @@ class BookController {
     }
 
     def show(Book book) {
+        assert book instanceof MongoEntity
         respond book
     }
 
