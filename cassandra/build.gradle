@@ -1,4 +1,9 @@
 dependencies {
     compile "org.grails.plugins:cassandra:$gormVersion"
+    compile("com.datastax.cassandra:cassandra-driver-core:2.0.4")
+    compile "org.springframework.data:spring-data-commons:1.8.4.RELEASE"
+    compile("org.springframework.data:spring-data-cassandra:1.0.4.RELEASE") {
+        exclude group:'org.apache.cassandra',module:'cassandra-all'
+    }    
 }
 

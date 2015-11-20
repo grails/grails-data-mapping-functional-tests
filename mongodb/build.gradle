@@ -1,4 +1,6 @@
 dependencies {
     compile "org.grails.plugins:mongodb:$gormVersion"
+    compile "org.mongodb:mongodb-driver:3.0.2"    
+    runtime 'org.springframework.data:spring-data-mongodb:1.8.1.RELEASE'
 }
 
