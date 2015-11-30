@@ -1,0 +1,7 @@
+dependencies {
+    compile "org.grails.plugins:mongodb:$gormVersion"
+    compile "org.grails.plugins:hibernate4:$gormVersion"
+    compile "org.hibernate:hibernate-ehcache"
+
+}
+
