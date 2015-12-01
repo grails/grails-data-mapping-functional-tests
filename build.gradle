@@ -1,6 +1,7 @@
 buildscript {
     ext {
         grailsVersion = project.grailsVersion
+        gormVersion = System.getenv('GORM_VERSION') ?: '5.0.0.BUILD-SNAPSHOT'
     }
     repositories {
         mavenLocal()
@@ -9,7 +10,7 @@ buildscript {
     dependencies {        
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.5.0'
-        classpath "org.grails.plugins:hibernate:4.3.10.5"
+        classpath "org.grails.plugins:hibernate4:$gormVersion"
         classpath "io.spring.gradle:dependency-management-plugin:0.5.3.RELEASE"
     }
 }
@@ -19,7 +20,7 @@ ext {
 }
 
 println "GORM VERSION: $gormVersion"
-subprojects {
+subprojects { Project project ->
 
     group "grails.gorm.functional.tests"
 
@@ -29,8 +30,14 @@ subprojects {
     apply plugin: "asset-pipeline"
     apply plugin: 'eclipse'
     apply plugin: 'idea'
-    apply plugin: "org.grails.grails-web"
-    apply plugin: "org.grails.grails-gsp"
+
+    if(project.name.contains('plugins/')) {
+        apply plugin: "org.grails.grails-plugin"
+    }
+    else {
+        apply plugin: "org.grails.grails-web"
+        apply plugin: "org.grails.grails-gsp"
+    }
 
     configurations.all {
         // check for updates every build

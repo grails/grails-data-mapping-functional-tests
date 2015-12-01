@@ -10,5 +10,6 @@ configurations.all {
 dependencies {
     compile "org.grails.plugins:hibernate5:$gormVersion"
     compile "org.hibernate:hibernate-ehcache:5.0.3.Final"
+    compile project(":plugins/hibernate-test")
 }
 
