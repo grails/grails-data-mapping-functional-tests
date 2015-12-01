@@ -1,7 +1,7 @@
 sudo: false
-cache:
-  directories:
-  - $HOME/.gradle
+# cache:
+#   directories:
+#   - $HOME/.gradle
 services:
 - redis
 - mongodb
