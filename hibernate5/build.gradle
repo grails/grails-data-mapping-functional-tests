@@ -2,5 +2,6 @@ dependencies {
     compile "org.grails.plugins:hibernate5:$gormVersion"
     compile "org.hibernate:hibernate-core:5.0.3.Final"
     compile "org.hibernate:hibernate-ehcache:5.0.3.Final"
+    compile project(":plugins/hibernate-test")
 }
 

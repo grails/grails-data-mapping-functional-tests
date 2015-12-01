@@ -1,6 +1,4 @@
 dependencies {
     compile "org.grails.plugins:hibernate4:$gormVersion"
     compile "org.hibernate:hibernate-ehcache"
-    compile project(":plugins/hibernate-test")
 }
-

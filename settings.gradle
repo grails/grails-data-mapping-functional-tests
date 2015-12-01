@@ -1,1 +1,1 @@
-include 'hibernate5','hibernate4', 'hibernate3', 'mongodb', 'neo4j', 'cassandra', 'redis', 'hibernate4-neo4j', 'hibernate4-mongodb'
+include 'hibernate5','hibernate4', 'hibernate3', 'mongodb', 'neo4j', 'cassandra', 'redis', 'hibernate4-neo4j', 'hibernate4-mongodb', 'plugins/hibernate-test'
