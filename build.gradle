@@ -17,6 +17,22 @@ buildscript {
 
 ext {
     gormVersion = System.getenv('GORM_VERSION') ?: '5.0.0.BUILD-SNAPSHOT'
+    def coreBuildFilePath = 'https://raw.githubusercontent.com/grails/grails-core/master/build.gradle'
+    def coreBuildFileUrl = new URL(coreBuildFilePath)
+    def versionNumberRegex = /^\s*grailsVersion\s*=\s*['|"](.*)['|"]\s*$/
+    def grailsVersionList = []
+    coreBuildFileUrl.eachLine { line ->
+        def matcher = (line =~ versionNumberRegex)
+        if(matcher) {
+            grailsVersionList << matcher[0][1]
+        }
+    }
+    if(!grailsVersionList) {
+        throw new GradleException("Could not find Grails version at $coreBuildFilePath")
+    } else if(grailsVersionList.size() > 1) {
+        throw new GradleException("Multiple Grails versions (${grailsVersionList}) found at $coreBuildFilePath")
+    }
+    grailsVersion = grailsVersionList[0]    
 }
 
 println "GORM VERSION: $gormVersion"
@@ -42,6 +58,11 @@ subprojects { Project project ->
     configurations.all {
         // check for updates every build
         resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            if(details.requested.group == 'org.grails' && details.requested.name.startsWith('grails-datastore')) {
+                details.useVersion(gormVersion)
+            }
+        }        
     }
 
     ext {
