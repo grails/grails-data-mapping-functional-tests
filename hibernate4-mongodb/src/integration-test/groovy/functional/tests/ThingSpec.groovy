@@ -29,18 +29,6 @@ class ThingSpec extends GebSpec {
     }
 
 
-    void "Test that a direct call that uses a dynamic finder works"() {
-        given:
-            new Thing(name:"Fred").save(flush:true)
-        when:"A direct GORM interaction that uses withTransaction is called"
-            def resp = restBuilder().get("$baseUrl/test/findDirect?name=Fred")
-
-        then:"The response is correct"
-            resp.status == OK.value()
-            resp.headers[CONTENT_TYPE] == ['application/json;charset=UTF-8']
-            resp.json.name == 'Fred'
-    }
-
     void "Test create with service that runs in a different thread"() {
         when:"A service is called that creates an instance in a different thread"
         def resp = restBuilder().get("$baseUrl/test/createWithService?name=thing2")
