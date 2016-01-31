@@ -1,3 +1,5 @@
-// Place your Spring DSL code here
+import functional.tests.ThingHelper
+
 beans = {
+    thingHelper(ThingHelper)
 }
