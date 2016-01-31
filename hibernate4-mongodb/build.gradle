@@ -3,5 +3,7 @@ dependencies {
     compile "org.grails.plugins:hibernate4:$gormVersion"
     compile "org.hibernate:hibernate-ehcache"
 
+    testCompile "org.grails:grails-datastore-rest-client:5.0.0.RELEASE"
+
 }
 
