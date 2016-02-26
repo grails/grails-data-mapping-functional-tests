@@ -3,5 +3,7 @@ dependencies {
     compile "org.hibernate:hibernate-core:5.0.3.Final"
     compile "org.hibernate:hibernate-ehcache:5.0.3.Final"
     compile project(":plugins/hibernate-test")
+
+    testCompile "org.grails:grails-datastore-test-support:$gormVersion"
 }
 
