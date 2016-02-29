@@ -9,7 +9,7 @@ services:
 jdk:
 - oraclejdk7
 install: false
-script: ./gradlew check -i
+script: ./gradlew check 
 env:
   global:
   - TERM=dumb
